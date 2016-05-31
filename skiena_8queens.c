@@ -5,7 +5,7 @@ void print(int **arr) {
 	printf("[");
 	for (int i=0 ;i<8;i++)
 		for(int j=0; j<8; j++) {
-			if(arr[i][j]>1) {
+			if(arr[i][j]==999) {
 				printf("%d%d ", i,j);
 		}
 	}
@@ -35,32 +35,32 @@ int move(int **arr, int row, int *col) {
 	if(found) {
 		for(i=0; i<8; i++) {
 			if (arr[row][i]!=999) {
-				arr[row][i] = 1;
+				arr[row][i]++;
 			}
 		}
 		for(i=0; i<8; i++) {
 			if (arr[i][found_col]!=999) {
-				arr[i][found_col] = 1;
+				arr[i][found_col]++;
 			}
 		}
 		for (i=found_col,j=found_row; i<8 && j<8; i++,j++) {
 			if (arr[j][i]!=999) {
-				arr[j][i] = 1;
+				arr[j][i]++;
 			}
 		}
 		for (i=found_col,j=found_row; i>=0 && j<8; i--,j++) {
 			if (arr[j][i]!=999) {
-				arr[j][i] = 1;
+				arr[j][i]++;
 			}
 		}
 		for (i=found_col,j=found_row; i>=0 && j>=0; i--,j--) {
 			if (arr[j][i]!=999) {
-				arr[j][i] = 1;
+				arr[j][i]++;
 			}
 		}
 		for (i=found_col,j=found_row; i<8 && j>=0; i++,j--) {
 			if (arr[j][i]!=999) {
-				arr[j][i] = 1;
+				arr[j][i]++;
 			}
 		}
 	}
@@ -86,27 +86,27 @@ void unmove(int **arr, int row, int *col) {
 	if(found) {
 		for(i=0; i<8; i++) {
 			if (arr[row][i]!=999) {
-				arr[row][i] = 0;
+				arr[row][i]--;
 			}
 		}
 		for (i=found_col,j=found_row; i<8 && j<8; i++,j++) {
 			if (arr[j][i]!=999) {
-				arr[j][i] = 0;
+				arr[j][i]--;
 			}
 		}
 		for (i=found_col,j=found_row; i>=0 && j<8; i--,j++) {
 			if (arr[j][i]!=999) {
-				arr[j][i] = 0;
+				arr[j][i]--;
 			}
 		}
 		for (i=found_col,j=found_row; i>=0 && j>=0; i--,j--) {
 			if (arr[j][i]!=999) {
-				arr[j][i] = 0;
+				arr[j][i]--;
 			}
 		}
 		for (i=found_col,j=found_row; i<8 && j>=0; i++,j--) {
 			if (arr[j][i]!=999) {
-				arr[j][i] = 0;
+				arr[j][i]--;
 			}
 		}
 	}
