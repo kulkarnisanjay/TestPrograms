@@ -128,11 +128,11 @@ void print_tree(struct avl *node) {
 
 int main() {
 	struct avl *avlnode = NULL;
-	int data, sample;
+	int data[3]={1,2,3}, sample;
 	scanf("%d",&sample);
 	for (int i=0;i<sample;i++) {
-		scanf("%d",&data);
-		insert_avlnode(data, &avlnode);
+		//scanf("%d",&data);
+		insert_avlnode(data[i], &avlnode);
 	}
 	print_tree(avlnode);
 	return 0;
